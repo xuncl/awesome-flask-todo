@@ -32,7 +32,7 @@
 
 
         
-    <div class="book" data-level="12" data-basepath="." data-revision="1417352094042">
+    <div class="book" data-level="12" data-basepath="." data-revision="1425303416933">
     
 
 <div class="book-summary">
@@ -409,9 +409,9 @@ $ <span class="hljs-built_in">sudo</span> supervisorctl start awesome-flask-todo
 </code></pre>
 <h3 id="nginx">Nginx</h3>
 <p>修改nginx的配置文件（awesome-flask-todo），然后复制到系统目录中去，并创建软链接。重启nignx。    </p>
-<pre><code>$ sudo cp etc/awesome-flask-todo /etc/nginx/site-available/  
-$ cd  /etc/nginx/site-enabled  
-$ sudo ln -s /etc/nginx/site-avalaible/awesome-flask-todo .  
+<pre><code>$ sudo cp etc/awesome-flask-todo /etc/nginx/sites-available/  
+$ cd  /etc/nginx/sites-enabled  
+$ sudo ln -s /etc/nginx/sites-avalaible/awesome-flask-todo .  
 $ sudo service nginx reload  
 $ sudo service nginx restart
 </code></pre><p>查看nginx状态    </p>
