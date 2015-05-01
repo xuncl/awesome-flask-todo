@@ -27,6 +27,8 @@ class TodoTestCase(unittest.TestCase):
         self.app.post("/add", data=dict(content="test add todo"))
         todo = Todo.objects.get_or_404(content="test add todo")
         assert todo is not None
+
+    def test_none_todo(self):
         try:
             todo = Todo.objects.get_or_404(content='test todo none')
         except HTTPException as e:
@@ -52,5 +54,9 @@ class TodoTestCase(unittest.TestCase):
         url = '/delete/'+str(todo.id)
         rv = self.app.get(url)
         assert "No todos, please add" in rv.data
+
+    def test_404(self):
+        rv = self.app.get('/404test')
+        assert "Not Found" in rv.data
 
 

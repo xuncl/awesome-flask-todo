@@ -52,6 +52,5 @@ def delete(todo_id):
 
 @app.errorhandler(404)
 def not_found(e):
-    print e
     return render_template('404.html'), 404
 
