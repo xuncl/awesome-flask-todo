@@ -5,9 +5,9 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Introduction | Flask Tutorial</title>
+        <title>Database | Flask Tutorial</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="欢迎来到Flask教程本教程主要面向初学者，老鸟可以直接飞过。Python中有很多Web开发框架，而Flask可以说是其中的佼佼者。那为什么选择Flask呢？">
+        <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
         
         
@@ -37,8 +37,10 @@
         
     
     
-    <link rel="next" href="./01ABOUTFLASK.html" />
+    <link rel="next" href="./05GETTODOS.html" />
     
+    
+    <link rel="prev" href="./03PROJECT.html" />
     
 
         
@@ -47,9 +49,9 @@
         
         
     <div class="book"
-        data-level="0"
-        data-chapter-title="Introduction"
-        data-filepath="README.md"
+        data-level="4"
+        data-chapter-title="Database"
+        data-filepath="04DATABASE.md"
         data-basepath="."
         data-revision="Sun Apr 17 2016 11:48:24 GMT+0800 (中国标准时间)"
         data-innerlanguage="">
@@ -67,7 +69,7 @@
 
             
     
-        <li class="chapter active" data-level="0" data-path="index.html">
+        <li class="chapter " data-level="0" data-path="index.html">
             
                 
                     <a href="./index.html">
@@ -125,7 +127,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4" data-path="04DATABASE.html">
+        <li class="chapter active" data-level="4" data-path="04DATABASE.html">
             
                 
                     <a href="./04DATABASE.html">
@@ -338,34 +340,57 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="flask-tutorial">Flask Tutorial</h1>
-<p>&#x6B22;&#x8FCE;&#x6765;&#x5230;Flask&#x6559;&#x7A0B;
-&#x672C;&#x6559;&#x7A0B;&#x4E3B;&#x8981;&#x9762;&#x5411;&#x521D;&#x5B66;&#x8005;&#xFF0C;&#x8001;&#x9E1F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x98DE;&#x8FC7;&#x3002;
-Python&#x4E2D;&#x6709;&#x5F88;&#x591A;Web&#x5F00;&#x53D1;&#x6846;&#x67B6;&#xFF0C;&#x800C;Flask&#x53EF;&#x4EE5;&#x8BF4;&#x662F;&#x5176;&#x4E2D;&#x7684;&#x4F7C;&#x4F7C;&#x8005;&#x3002;
-&#x90A3;&#x4E3A;&#x4EC0;&#x4E48;&#x9009;&#x62E9;Flask&#x5462;&#xFF1F;</p>
-<ol>
-<li>&#x6587;&#x6863;&#x3002;Flask&#x7684;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x9F50;&#x5168;&#xFF0C;&#x521D;&#x5B66;&#x8005;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4ECE;&#x5B83;&#x5165;&#x624B;&#x5B66;&#x4E60;&#x3002;</li>
-<li>&#x5FAE;&#x5185;&#x6838;&#x3002;&#x8FD9;&#x70B9;&#x4E0E;Django&#x8FD9;&#x79CD;&#x5168;&#x6808;&#x5F0F;&#x6846;&#x67B6;&#x5F62;&#x6210;&#x9C9C;&#x660E;&#x7684;&#x5BF9;&#x6BD4;&#xFF0C;Flask&#x5C3D;&#x91CF;&#x4FDD;&#x6301;&#x5185;&#x6838;&#x7684;&#x7CBE;&#x7B80;&#xFF0C;&#x540C;&#x65F6;&#x63D0;&#x4F9B;&#x826F;&#x597D;&#x7684;&#x6269;&#x5C55;&#x673A;&#x5236;&#xFF0C;&#x7ED9;&#x5F00;&#x53D1;&#x8005;&#x66F4;&#x5927;&#x7684;&#x9009;&#x62E9;&#x7A7A;&#x95F4;&#x3002;&#x6613;&#x7528;&#xFF0C;&#x7075;&#x6D3B;&#xFF0C;&#x4E0D;&#x5931;&#x5F3A;&#x5927;&#x3002;</li>
-<li>Flask&#x6E90;&#x7801;&#x3002;Flask&#x672C;&#x8EAB;&#x5C31;&#x662F;&#x5F88;&#x597D;&#x7684;Python&#x5B66;&#x4E60;&#x8D44;&#x6599;&#xFF0C;&#x719F;&#x7EC3;&#x4F7F;&#x7528;&#x540E;&#xFF0C;&#x6DF1;&#x5165;&#x5B66;&#x4E60;&#x6E90;&#x7801;&#xFF0C;&#x662F;&#x4E00;&#x6761;&#x5F88;&#x597D;&#x7684;&#x63D0;&#x9AD8;&#x9014;&#x5F84;&#x3002;</li>
-</ol>
-<p>&#x5728;&#x5B66;&#x4E60;&#x672C;&#x6559;&#x7A0B;&#x4E4B;&#x524D;&#xFF0C;&#x63A8;&#x8350;&#x4F60;&#x8BFB;&#x8BFB;&#x5B98;&#x65B9;&#x6587;&#x6863;&#xFF0C;&#x800C;&#x4E14;&#x4E5F;&#x6709;&#x4E2D;&#x6587;&#x7248;&#x3002;
-&#x4E3A;&#x4F55;&#x8FD8;&#x8981;&#x5199;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x6559;&#x7A0B;&#xFF1F;&#x4E3B;&#x8981;&#x60F3;&#x8BA9;&#x5927;&#x5BB6;&#x80FD;&#x5FEB;&#x901F;&#x7684;&#x505A;&#x51FA;&#x4E00;&#x4E2A;Web&#x5E94;&#x7528;&#xFF0C;&#x611F;&#x53D7;Flask&#x7684;&#x9B45;&#x529B;&#x3002;&#x672C;&#x6559;&#x7A0B;&#x6709;&#x4EE5;&#x4E0B;&#x7279;&#x70B9;&#xFF1A;</p>
-<ol>
-<li>&#x5C0F;&#x9879;&#x76EE;&#x9A71;&#x52A8;&#x3002;&#x9EBB;&#x96C0;&#x867D;&#x5C0F;&#x4E94;&#x810F;&#x4FF1;&#x5168;&#xFF0C;&#x8986;&#x76D6;&#x5F00;&#x53D1;&#x4E2D;&#x7684;&#x57FA;&#x7840;&#x77E5;&#x8BC6;&#x3002;</li>
-<li>&#x5C0F;&#x8282;&#x8BB2;&#x89E3;&#xFF0C;&#x7531;&#x6D45;&#x5165;&#x6DF1;&#xFF0C;&#x5FAA;&#x5E8F;&#x6E10;&#x8FDB;&#x3002;</li>
-<li>&#x4E0D;&#x7ECF;&#x6D4B;&#x8BD5;&#x7684;&#x5E94;&#x7528;&#x662F;&#x4E0D;&#x582A;&#x4E00;&#x51FB;&#x7684;&#xFF0C;&#x672C;&#x5C0F;&#x4E66;&#x7ED3;&#x5408;&#x5C0F;&#x9879;&#x76EE;&#x8FDB;&#x884C;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x3002;</li>
-<li>&#x4E0D;&#x61C2;&#x8FD0;&#x7EF4;&#x7684;&#x5F00;&#x53D1;&#x4E0D;&#x662F;&#x597D;&#x5F00;&#x53D1;&#xFF0C;&#x6240;&#x4EE5;&#x8FD8;&#x4F1A;&#x6559;&#x4F60;&#x5982;&#x4F55;&#x90E8;&#x7F72;&#x9879;&#x76EE;&#x3002;</li>
-</ol>
-<p>&#x5C0F;&#x9879;&#x76EE;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;todo&#x5E94;&#x7528;&#xFF0C;&#x540E;&#x53F0;&#x6570;&#x636E;&#x5E93;&#x4F7F;&#x7528;MongoDB&#xFF0C;&#x540D;&#x5B57;&#x5C31;&#x53EB;awesome-flask-todo&#xFF0C;&#x5FC5;&#x987B;&#x9AD8;&#x5927;&#x4E0A;&#x3002;
-&#x518D;&#x5F00;&#x59CB;&#x672C;&#x6559;&#x7A0B;&#x524D;&#xFF0C;&#x9700;&#x8981;&#x4E00;&#x70B9;&#x70B9;&#x5B66;&#x524D;&#x77E5;&#x8BC6;&#xFF1A;</p>
-<ol>
-<li>Python&#x57FA;&#x7840;&#x8BED;&#x6CD5;&#x3002;&#x770B;&#x770B;&#x5B98;&#x7F51;&#x6587;&#x6863;&#x5C31;&#x597D;&#x3002;</li>
-<li>&#x57FA;&#x672C;&#x7684;&#x524D;&#x7AEF;&#x77E5;&#x8BC6;&#x3002;CSS&#xFF0C;HTML&#xFF0C;&#x4E86;&#x89E3;bootstrap&#x66F4;&#x597D;&#x3002;</li>
-<li>&#x4E86;&#x89E3;&#x70B9;MongoDB&#x3002;&#x53BB;&#x5B98;&#x7F51;&#x770B;&#x770B;&#xFF0C;&#x5B89;&#x88C5;&#x4E00;&#x4E0B;&#xFF0C;&#x7B80;&#x5355;&#x611F;&#x53D7;&#x4E00;&#x4E0B;&#x3002;</li>
-<li>Git&#x3002;&#x9879;&#x76EE;&#x4F7F;&#x7528;git&#x7BA1;&#x7406;&#xFF0C;&#x653E;&#x5728;github&#x4E0A;&#x3002;&#x6BCF;&#x4E00;&#x5C0F;&#x8282;&#x7684;&#x5F00;&#x53D1;&#x90FD;&#x4F1A;&#x6253;&#x4E0A;Tag&#xFF0C;&#x8BB0;&#x5F55;&#x5B66;&#x4E60;&#x8FC7;&#x7A0B;&#x3002;</li>
-</ol>
-<p>&#x603B;&#x4E4B;&#xFF0C;&#x5343;&#x8A00;&#x4E07;&#x8BED;&#x4E0D;&#x5982;&#x73B0;&#x5728;&#x5C31;&#x624B;&#x52A8;&#xFF0C;&#x4E0E;&#x5176;&#x7EA0;&#x7ED3;&#x9009;&#x62E9;&#x54EA;&#x4E2A;&#x6846;&#x67B6;&#xFF0C;&#x4E0D;&#x5982;&#x76F4;&#x63A5;&#x5F00;&#x59CB;&#x672C;&#x6559;&#x7A0B;&#xFF0C;&#x56E0;&#x4E3A;&#x672C;&#x6559;&#x7A0B;&#x7684;&#x5B66;&#x4E60;&#x65F6;&#x95F4;&#x8FDC;&#x8FDC;&#x5C0F;&#x4E8E;&#x4F60;&#x7EA0;&#x7ED3;&#x7684;&#x65F6;&#x95F4;&#x3002;
-&#x6240;&#x4EE5;&#xFF0C;&#x73B0;&#x5728;&#x5C31;&#x5F00;&#x59CB;&#x5427;&#xFF5E;</p>
+                        <h1 id="datebase">Datebase</h1>
+<p>&#x672C;&#x6559;&#x7A0B;&#x4E2D;&#x4F7F;&#x7528;MongoDB&#x5B58;&#x50A8;&#x6570;&#x636E;&#xFF0C;Flask&#x5E94;&#x7528;&#x901A;&#x8FC7;MongoEngine&#x4E0E;MongoDB&#x4EA4;&#x4E92;&#x3002;  </p>
+<h2 id="&#x5B89;&#x88C5;">&#x5B89;&#x88C5;</h2>
+<p>&#x5728;Ubuntu&#x4E2D;&#xFF0C;&#x53EA;&#x8981;  </p>
+<pre><code class="lang-bash">$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:<span class="hljs-number">80</span> --recv <span class="hljs-number">7</span>F0CEB10  
+$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen&apos;</span> | sudo tee /etc/apt/sources.list.d/mongodb.list  
+$ sudo apt-get update  
+$ sudo apt-get install -y mongodb-org
+</code></pre>
+<p>&#x5176;&#x4ED6;&#x7CFB;&#x7EDF;&#xFF0C;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x5B98;&#x65B9;<a href="http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/" target="_blank">&#x6587;&#x6863;</a>&#x8FDB;&#x884C;&#x5B89;&#x88C5;&#x3002;</p>
+<h2 id="&#x8FD0;&#x884C;mongodb">&#x8FD0;&#x884C;MongoDB</h2>
+<p>&#x5B89;&#x88C5;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x4E24;&#x4E2A;&#x547D;&#x4EE4;&#xFF0C;&#x542F;&#x52A8;&#x6216;&#x8005;&#x5173;&#x95ED;MongoDB  </p>
+<pre><code class="lang-bash">$ sudo service mongod start  
+$ sudo service mongod stop
+</code></pre>
+<p>&#x5728;&#x7EC8;&#x7AEF;&#x4E2D;&#x4F7F;&#x7528;mongo&#x547D;&#x4EE4;&#x6253;&#x5F00;MongoDB&#x7684;&#x63A7;&#x5236;&#x53F0;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x3002;&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x64CD;&#x4F5C;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x53EF;&#x4EE5;&#x5B89;&#x88C5;&#x7B2C;&#x4E09;&#x65B9;&#x7684;&#x63A7;&#x5236;&#x53F0;&#x5DE5;&#x5177;&#x3002;&#x63A8;&#x8350;&#x4F7F;&#x7528;<a href="http://robomongo.org/" target="_blank">Robomongo</a>,&#x5F00;&#x6E90;&#x514D;&#x8D39;&#x7684;&#x8DE8;&#x5E73;&#x53F0;&#x5DE5;&#x5177;&#x3002;  </p>
+<h2 id="&#x914D;&#x7F6E;mongodb">&#x914D;&#x7F6E;MongoDB</h2>
+<p>&#x5728;&#x5DE5;&#x7A0B;&#x4E2D;&#x914D;&#x7F6E;MongoDB&#xFF0C;&#x9996;&#x5148;&#x5728;config.py&#x4E2D;&#x8FDB;&#x884C;&#x6DFB;&#x52A0;  </p>
+<pre><code class="lang-python">MONGODB_SETTINGS = {<span class="hljs-string">&apos;DB&apos;</span>: <span class="hljs-string">&apos;todo_db&apos;</span>}
+</code></pre>
+<h2 id="&#x5F00;&#x53D1;">&#x5F00;&#x53D1;</h2>
+<p>&#x5728;__init__.py&#x4E2D;&#x5BFC;&#x5165;MongoEngine&#xFF0C;&#x5E76;&#x4E14;&#x5B9E;&#x4F8B;&#x5316;  </p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask
+<span class="hljs-keyword">from</span> flask.ext.mongoengine <span class="hljs-keyword">import</span> MongoEngine
+
+app = Flask(__name__)
+app.config.from_object(<span class="hljs-string">&quot;config&quot;</span>)
+
+db = MongoEngine(app)
+
+<span class="hljs-keyword">from</span> app <span class="hljs-keyword">import</span> views, models
+</code></pre>
+<p>&#x7136;&#x540E;&#x521B;&#x5EFA;&#x6570;&#x636E;&#x6A21;&#x578B;&#xFF0C;&#x7528;&#x4E8E;&#x6620;&#x5C04;MongoDB&#x4E2D;&#x7684;Document&#x5BF9;&#x8C61;&#xFF0C;&#x5728;model.py&#x4E2D;  </p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> app <span class="hljs-keyword">import</span> db
+<span class="hljs-keyword">import</span> datetime
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Todo</span><span class="hljs-params">(db.Document)</span>:</span>
+    content = db.StringField(required=<span class="hljs-keyword">True</span>, max_length=<span class="hljs-number">20</span>)
+    time = db.DateTimeField(default=datetime.datetime.now())
+    status = db.IntField(default=<span class="hljs-number">0</span>)
+</code></pre>
+<p>&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x53EA;&#x6709;&#x4E09;&#x4E2A;&#x5B57;&#x6BB5;&#xFF0C;&#x5206;&#x522B;&#x8868;&#x793A;&#xFF1A;todo&#x7684;&#x5185;&#x5BB9;&#xFF0C;todo&#x7684;&#x53D1;&#x5E03;&#x65F6;&#x95F4;&#xFF0C;todo&#x7684;&#x5B8C;&#x6210;&#x72B6;&#x6001;&#x3002;<br>&#x5728;manage.py&#x4E2D;&#x52A0;&#x5165;&#x6570;&#x636E;&#x5E93;&#x7684;&#x547D;&#x4EE4;  </p>
+<pre><code class="lang-python"><span class="hljs-decorator">@manager.command</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">save_todo</span><span class="hljs-params">()</span>:</span>
+    todo = Todo(content=<span class="hljs-string">&quot;my first todo&quot;</span>)
+    todo.save()
+</code></pre>
+<p>&#x7136;&#x540E;&#xFF0C;&#x5728;&#x7EC8;&#x7AEF;&#x4E2D;&#x8FD0;&#x884C;  </p>
+<pre><code class="lang-bash">$ python manage.py save_todo
+</code></pre>
+<p>&#x6B64;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;Robomongo&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x5230;&#x63D2;&#x5165;&#x7684;&#x7684;&#x6570;&#x636E;&#x3002;<br>&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x63D0;&#x4EA4;&#x4EE3;&#x7801;&#xFF0C;&#x6253;&#x4E0A;Tag&#xFF0C;v0.3</p>
 
                     
                     </section>
@@ -376,8 +401,10 @@ Python&#x4E2D;&#x6709;&#x5F88;&#x591A;Web&#x5F00;&#x53D1;&#x6846;&#x67B6;&#xFF0C
         </div>
 
         
+        <a href="./03PROJECT.html" class="navigation navigation-prev " aria-label="Previous page: Project"><i class="fa fa-angle-left"></i></a>
         
-        <a href="./01ABOUTFLASK.html" class="navigation navigation-next navigation-unique" aria-label="Next page: About Flask"><i class="fa fa-angle-right"></i></a>
+        
+        <a href="./05GETTODOS.html" class="navigation navigation-next " aria-label="Next page: Get Todos"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
