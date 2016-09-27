@@ -4,7 +4,7 @@
         {{ form.hidden_tag() }}
         {{ form.content(class="form-control") }}
     <span class="input-group-btn">
-        <button class="btn btn-primary" type="submit">Add</button>
+        <button class="btn btn-primary" type="submit">接任务</button>
     </span>
     </form>
     {% for error in form.errors.content %}
@@ -12,14 +12,14 @@
     {% endfor %}
 
     <div>
-        <h2>Todo List</h2>
+        <h2>任务栏</h2>
         {% if todos %}
             <table class="table">
                 <thead>
                 <tr>
-                    <th>content</th>
-                    <th>time</th>
-                    <th>operation</th>
+                    <th>任务详情</th>
+                    <th>触发时间</th>
+                    <th>你决定：</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -29,8 +29,8 @@
                             <td>{{ t.content }}</td>
                             <td>{{ t.time.strftime('%H:%M %d-%m-%Y') }}</td>
                             <td>
-                                <a href="/done/{{ t.id }}" class="btn btn-primary">Done</a>
-                                <a href="/delete/{{ t.id }}" class="btn btn-danger">Delete</a>
+                                <a href="/done/{{ t.id }}" class="btn btn-primary">完成任务，去领取奖励</a>
+                                <a href="/delete/{{ t.id }}" class="btn btn-danger">认怂放弃</a>
                             </td>
                         </tr>
                     {% else %}
@@ -38,8 +38,8 @@
                             <td id="center">{{ t.content }}</td>
                             <td>{{ t.time.strftime('%H:%M %d-%m-%Y') }}</td>
                             <td>
-                                <a href="/undone/{{ t.id }}" class="btn btn-primary">Undone</a>
-                                <a href="/delete/{{ t.id }}" class="btn btn-danger">Delete</a>
+                                <a href="/undone/{{ t.id }}" class="btn btn-primary">等等，让我在考虑一下</a>
+                                <a href="/delete/{{ t.id }}" class="btn btn-danger">认怂放弃</a>
                             </td>
                         </tr>
 
@@ -48,7 +48,7 @@
                 </tbody>
             </table>
         {% else %}
-            <h3 class="text-info">No todos, please add</h3>
+            <h3 class="text-info">还没有任务，还在等什么？勇敢的少年啊，快去创造奇迹！</h3>
         {% endif %}
 
     </div>
