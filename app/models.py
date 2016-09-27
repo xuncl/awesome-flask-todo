@@ -1,6 +1,6 @@
 from app import db
 import datetime
-from flask.ext.mongoengine.wtf import model_form
+from flask_mongoengine.wtf import model_form
 
 
 class Todo(db.Document):

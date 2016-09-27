@@ -1,6 +1,6 @@
 # -×- coding: utf-8 -*-
 
-from flask.ext.script import Manager, Server
+from flask_script import Manager, Server
 from app import app
 from app.models import Todo
 
@@ -14,7 +14,7 @@ manager.add_command("runserver",
 
 @manager.command
 def save_todo():
-    todo = Todo(content="my first todo")
+    todo = Todo(content="my third todo")
     todo.save()
 
 
